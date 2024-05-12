@@ -1,5 +1,14 @@
 import mongoose from "mongoose";
 
+/* const gradeSchema = mongoose.Schema(
+  {
+    grade: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+); */
+
 const studentSchema = mongoose.Schema(
   {
     firstName: {
@@ -37,7 +46,16 @@ const studentSchema = mongoose.Schema(
     ],
     grades: {
       type: Map,
-      of: [String],
+      of: [
+        {
+          grade: {
+            type: String,
+          },
+          date: {
+            type: String,
+          },
+        },
+      ],
     },
   },
   { timestamps: true }
