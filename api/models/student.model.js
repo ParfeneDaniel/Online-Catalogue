@@ -1,0 +1,48 @@
+import mongoose from "mongoose";
+
+const studentSchema = mongoose.Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    emailToken: {
+      type: String,
+    },
+    isVerify: {
+      type: Boolean,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    previousPassword: [
+      {
+        type: String,
+      },
+    ],
+    grades: {
+      type: Map,
+      of: [String],
+    },
+  },
+  { timestamps: true }
+);
+
+export const Student = mongoose.model("Student", studentSchema);
+
+export default Student;
