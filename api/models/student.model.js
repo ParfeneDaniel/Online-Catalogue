@@ -44,11 +44,32 @@ const studentSchema = mongoose.Schema(
         type: String,
       },
     ],
+    class: {
+      type: String,
+      required: true,
+    },
     grades: {
       type: Map,
       of: [
         {
           grade: {
+            type: String,
+          },
+          date: {
+            type: String,
+          },
+        },
+      ],
+    },
+    absences: {
+      type: Map,
+      of: [String],
+    },
+    mentions: {
+      type: Map,
+      of: [
+        {
+          grades: {
             type: String,
           },
           date: {
