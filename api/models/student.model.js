@@ -1,14 +1,5 @@
 import mongoose from "mongoose";
 
-/* const gradeSchema = mongoose.Schema(
-  {
-    grade: {
-      type: String,
-    },
-  },
-  { timestamps: true }
-); */
-
 const studentSchema = mongoose.Schema(
   {
     firstName: {
@@ -34,46 +25,51 @@ const studentSchema = mongoose.Schema(
     },
     isVerify: {
       type: Boolean,
+      required: true,
     },
     password: {
       type: String,
       required: true,
     },
-    previousPassword: [
-      {
-        type: String,
-      },
-    ],
+    previousPassword: [String],
     class: {
       type: String,
       required: true,
+    },
+    classMaster: {
+      type: String,
+      required: true,
+    },
+    teachers: {
+      type: Map,
+      of: String,
     },
     grades: {
       type: Map,
       of: [
         {
           grade: {
-            type: String,
+            type: Number,
           },
           date: {
-            type: String,
+            type: Date,
           },
         },
       ],
     },
     absences: {
       type: Map,
-      of: [String],
+      of: [Date],
     },
     mentions: {
       type: Map,
       of: [
         {
-          grades: {
+          mention: {
             type: String,
           },
           date: {
-            type: String,
+            type: Date,
           },
         },
       ],
