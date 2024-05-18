@@ -1,19 +1,31 @@
-import express from "express"
+import express from "express";
 import dotenv from "dotenv";
-import { connectedToMongoDB } from "./db/config.js";
-import testRouter from "./routes/test.route.js";
-
+import redis from "redis";
+import { connectToMongoDB } from "./db/config.js";
+import authRouter from "./routes/auth.router.js";
+import cookieParser from "cookie-parser";
 dotenv.config();
 
 const PORT = process.env.PORT;
 
 const app = express();
 
-app.use(express.json());
+export const client = redis.createClient();
 
+client.connect();
+
+client.on("connect", () => {
+  console.log("Connected to RedisDB!");
+});
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+app.use("/api/auth", authRouter);
 app.use("/api/test", testRouter);
 
 app.listen(PORT, () => {
-    connectedToMongoDB();
-    console.log("Server is running")
-})
+  connectToMongoDB();
+  console.log("Server is running!"); 
+});
