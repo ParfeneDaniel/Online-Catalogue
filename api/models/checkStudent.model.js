@@ -1,6 +1,6 @@
 import { checkSchema } from "express-validator";
 
-export const userValidator = checkSchema({
+export const studentValidator = checkSchema({
   firstName: {
     in: ["body"],
     isLength: {

@@ -31,7 +31,7 @@ const studentSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    previousPassword: [String],
+    previousPasswords: [String],
     class: {
       type: String,
       required: true,
