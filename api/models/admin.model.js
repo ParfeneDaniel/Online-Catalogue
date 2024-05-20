@@ -36,6 +36,6 @@ const adminSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Admin = mongoose.model("Admin", teacherSchema);
+const Admin = mongoose.model("Admin", adminSchema);
 
 export default Admin;
