@@ -32,14 +32,20 @@ const teacherSchema = mongoose.Schema(
       required: true,
     },
     previousPasswords: [String],
-    hisClass: {
-      type: String,
-      default: null,
+    subjects: {
+      type: [String],
+      required: true,
     },
-    classes: {
-      type: Map,
-      of: String,
+    classMaster: {
+      type: Boolean,
+      default: false,
     },
+    classes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Class",
+      },
+    ],
   },
   { timestamps: true }
 );

@@ -64,18 +64,4 @@ export const studentValidator = checkSchema({
     trim: true,
     escape: true,
   },
-  class: {
-    in: ["body"],
-    isString: true,
-    notEmpty: true,
-    trim: true,
-    escape: true,
-  },
-  classMaster: {
-    in: ["body"],
-    isString: true,
-    notEmpty: true,
-    trim: true,
-    escape: true,
-  },
 });

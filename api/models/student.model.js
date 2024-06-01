@@ -32,18 +32,6 @@ const studentSchema = mongoose.Schema(
       required: true,
     },
     previousPasswords: [String],
-    class: {
-      type: String,
-      required: true,
-    },
-    classMaster: {
-      type: String,
-      required: true,
-    },
-    teachers: {
-      type: Map,
-      of: String,
-    },
     grades: {
       type: Map,
       of: [
