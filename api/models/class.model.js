@@ -11,6 +11,10 @@ const classSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       unique: true,
     },
+    category: {
+      type: String,
+      required: true,
+    }, 
     teachers: [
       {
         id: {
